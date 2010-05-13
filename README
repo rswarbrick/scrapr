@@ -1,0 +1,43 @@
+This is a common lisp script/application to pull the "original size"
+image urls from an image set on Flickr.
+
+I wrote it because I needed to grab >100 photos from someone elses
+Flickr account that they had taken at a concert I was involved with
+and "helpfully" shared by uploading to Flickr. Sigh.
+
+Anyway, the only software I could find that did this was Windows-based
+and nasty, so I rolled a brittle web-scraping version for myself.
+
+To use it:
+
+  (1) Somehow make the scrapr.asd appear in your asdf repository
+      list. It seems there's crazy stuff you have to do on Windows. On
+      linux, symlink it to your asdf "systems" folder.
+
+  (2) Install drakma and cl-ppcre (both available via asdf-install).
+
+  (3) Use it! For example:
+
+        (require :scrapr)
+        (original-photo-urls "username" "setregexp" "urls.txt")
+
+
+Oh, and let me know if it works!
+
+
+BUGS:
+
+ * This fails ungracefully if a photo doesn't have an original size
+   available. Note that this happens if the user who owns the set
+   isn't a "pro" member. This is easily fixable, I think, but it's not
+   been a problem for me yet!
+
+LICENSING:
+(This is last on purpose)
+
+I hereby grant anyone the license to do anything they like with this
+code. It's released into the public domain in countries where that
+means anything, and otherwise is available under the BSD licence.
+
+
+Rupert Swarbrick, 13/5/2010
